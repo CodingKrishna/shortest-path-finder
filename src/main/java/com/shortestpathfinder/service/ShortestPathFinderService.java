@@ -20,9 +20,8 @@ public class ShortestPathFinderService {
 	private RobotService robotService;
 
 	public List<Vertex> findShortestPath(int robotId, int sourceVertex, int destVertex) {
-		Robot r = robotService.getRobot(2);
+		Robot r = robotService.getRobot(robotId);
 		GridBFSWithMultiCapabilites gridBFSWithMultiCapabilites = new GridBFSWithMultiCapabilites(grid);
-		Vertex sourceVert = grid.getVertices().get(sourceVertex);
-		return gridBFSWithMultiCapabilites.bfs(sourceVert, r.getCapabilies());
+		return gridBFSWithMultiCapabilites.bfs(sourceVertex, destVertex, r.getCapabilies());
 	}
 }

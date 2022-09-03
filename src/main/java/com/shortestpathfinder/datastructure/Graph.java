@@ -26,24 +26,17 @@ public class Graph {
 	Map<Vertex, List<Edge>> graph = new HashMap<>();
 
 	public Graph(Config config) {
-		IntStream.range(0, config.getVertices()).forEach(x ->{
-			log.info("Index:{}", x);
+		IntStream.range(0, config.getVertices()).forEach(x -> {
 			Vertex v1 = new Vertex(x, "Rack " + x);
 			vertices.add(v1);
 			graph.put(v1, new ArrayList<>());
 		});
-		config.getEdges().forEach(edge ->{
+		config.getEdges().forEach(edge -> {
 			addEdge(edge);
 		});
+		printGraph();
 		log.info("Graph Created successfully.");
 	}
-	
-//	public Graph(List<Vertex> v) {
-//		this.vertices = v;
-//		for (Vertex x : v) {
-//			graph.put(x, new ArrayList<>());
-//		}
-//	}
 
 	public void addEdge(Edge e) {
 		Optional.ofNullable(e).ifPresent(x -> {
@@ -54,7 +47,7 @@ public class Graph {
 	public List<Edge> getEdges(Vertex v) {
 		return graph.get(v);
 	}
-	
+
 	public void printGraph() {
 		for (Vertex vertex : graph.keySet()) {
 			List<Edge> le = graph.get(vertex);
@@ -62,22 +55,5 @@ public class Graph {
 				System.out.println("Source::" + e.getSrc() + " Dest::" + e.getDest() + " Weight:" + e.getWeight());
 			}
 		}
-	}
-
-	public static void main(String[] args) {
-//		Vertex n1 = new Vertex(0,"Rack 1");
-//		Vertex n2 = new Vertex(1,"Rack 2");
-//		Vertex n3 = new Vertex(2,"Rack 3");
-//		Graph g = new Graph(List.of(n1, n2, n3));
-		
-//		g.addEdge(new Edge(0, 1));
-//		g.addEdge(new Edge(1, 2));
-//		g.addEdge(new Edge(2, 0));
-//		g.printGraph();
-		
-		Config c = new Config();
-		c.setVertices(3);
-		Graph g = new Graph(c);
-		g.printGraph();
 	}
 }

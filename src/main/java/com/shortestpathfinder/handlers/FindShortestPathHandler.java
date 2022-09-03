@@ -27,6 +27,7 @@ public class FindShortestPathHandler {
 
 	public Mono<ServerResponse> findPath(ServerRequest request) {
 		log.info("Request received to process shortest path..");
+		// TODO: instead of path param's read it from request body.
 		final int startVertex = Integer.parseInt(request.pathVariable("startVertex"));
 		final int destVertex = Integer.parseInt(request.pathVariable("destVertex"));
 		final int robotId = Integer.parseInt(request.pathVariable("robotId"));
@@ -39,10 +40,4 @@ public class FindShortestPathHandler {
 				.body(Flux.fromIterable(path), List.class)
 				.switchIfEmpty(notFound().build());
 	}
-
-	// TODO: 
-//	FindShortestPathDTO findShortestPathDTO = request.bodyToMono(FindShortestPathDTO.class).toProcessor().peek();
-//	final int startVertex = findShortestPathDTO.getStartVertex();
-//	final int destVertex = findShortestPathDTO.getDestVertex();
-//	final int robotId = findShortestPathDTO.getRobotId();
 }

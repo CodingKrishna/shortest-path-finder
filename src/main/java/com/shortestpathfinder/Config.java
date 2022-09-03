@@ -22,7 +22,8 @@ public class Config {
 
 	public List<Edge> edges = new LinkedList<Edge>();
 
-	public Config() {
+	public Config(@Value("${graph.vertices}") int vertices) {
+		this.vertices = vertices;
 		edges.add(new Edge(0, 1));
 		edges.add(new Edge(1, 2));
 		edges.add(new Edge(2, 0));

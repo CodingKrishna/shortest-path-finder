@@ -14,7 +14,7 @@ public class GridBFS {
 	}
 
 	// Function to perform BFS on the graph
-	public void bfs(int start) {
+	public void bfs(int start, int end) {
 		// Number of vertex
 		int v = grid.getVertexs();
 
@@ -41,6 +41,10 @@ public class GridBFS {
 			System.out.print(vis + " ");
 			q.remove(q.get(0));
 
+			if(vis == end) {
+				break;
+			}
+			
 			// For every adjacent vertex to
 			// the current vertex
 			for (int i = 0; i < v; i++) {

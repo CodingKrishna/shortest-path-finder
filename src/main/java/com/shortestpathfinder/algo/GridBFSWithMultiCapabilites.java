@@ -18,11 +18,9 @@ public class GridBFSWithMultiCapabilites {
 	}
 
 	// Function to perform BFS on the graph
-	public List<Vertex> bfs(Vertex vertex, Set<Capability> capabilities) {
+	public List<Vertex> bfs(int start, int end, Set<Capability> capabilities) {
 		
 		List<Vertex> visitedVertex = new LinkedList<>();
-		
-		int start = vertex.getId();
 
 		// Number of vertex
 		int v = grid.getVertexs();
@@ -46,11 +44,16 @@ public class GridBFSWithMultiCapabilites {
 		while (!q.isEmpty()) {
 			vis = q.get(0);
 
+			
 			// Print the current node
 			//System.out.print(vis + " ");
 			visitedVertex.add(grid.getVertices().get(vis));
 			q.remove(q.get(0));
 
+			if(vis == end) {
+				break;
+			}
+			
 			// For every adjacent vertex to
 			// the current vertex
 			for (int i = 0; i < v; i++) {
