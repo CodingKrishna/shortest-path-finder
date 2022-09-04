@@ -1,0 +1,77 @@
+@startuml
+participant Actor
+Actor -> FindShortestPathHandler : findPath
+activate FindShortestPathHandler
+FindShortestPathHandler -> ShortestPathFinderService : findShortestPath
+activate ShortestPathFinderService
+ShortestPathFinderService -> RobotService : getRobot
+activate RobotService
+RobotService --> ShortestPathFinderService
+deactivate RobotService
+ShortestPathFinderService -> ShortestPathFinderService : capabilitiesToConfigConverter
+activate ShortestPathFinderService
+ShortestPathFinderService -> ShortestPathFinderService : λ→
+activate ShortestPathFinderService
+ShortestPathFinderService -> Capability : updateConfig
+activate Capability
+Capability --> ShortestPathFinderService
+deactivate Capability
+ShortestPathFinderService --> ShortestPathFinderService
+deactivate ShortestPathFinderService
+ShortestPathFinderService --> ShortestPathFinderService
+deactivate ShortestPathFinderService
+create Location
+ShortestPathFinderService -> Location : new
+activate Location
+Location --> ShortestPathFinderService
+deactivate Location
+create Location
+ShortestPathFinderService -> Location : new
+activate Location
+Location --> ShortestPathFinderService
+deactivate Location
+ShortestPathFinderService -> ShortestPathFinder : findShortestPath
+activate ShortestPathFinder
+ShortestPathFinder -> ShortestPathFinderImpl : findShortestPath
+activate ShortestPathFinderImpl
+ShortestPathFinderImpl -> ShortestPathFinderImpl : addNeighbours
+activate ShortestPathFinderImpl
+create Location
+ShortestPathFinderImpl -> Location : new
+activate Location
+Location --> ShortestPathFinderImpl
+deactivate Location
+create Location
+ShortestPathFinderImpl -> Location : new
+activate Location
+Location --> ShortestPathFinderImpl
+deactivate Location
+create Location
+ShortestPathFinderImpl -> Location : new
+activate Location
+Location --> ShortestPathFinderImpl
+deactivate Location
+create Location
+ShortestPathFinderImpl -> Location : new
+activate Location
+Location --> ShortestPathFinderImpl
+deactivate Location
+ShortestPathFinderImpl --> ShortestPathFinderImpl
+deactivate ShortestPathFinderImpl
+ShortestPathFinderImpl -> ShortestPathFinder : findShortestPath
+activate ShortestPathFinder
+create CurrentLocation
+ShortestPathFinder -> CurrentLocation : new
+activate CurrentLocation
+CurrentLocation --> ShortestPathFinder
+deactivate CurrentLocation
+ShortestPathFinder --> ShortestPathFinderImpl
+deactivate ShortestPathFinder
+ShortestPathFinderImpl --> ShortestPathFinder
+deactivate ShortestPathFinderImpl
+ShortestPathFinder --> ShortestPathFinderService
+deactivate ShortestPathFinder
+ShortestPathFinderService --> FindShortestPathHandler
+deactivate ShortestPathFinderService
+return
+@enduml
