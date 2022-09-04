@@ -1,6 +1,14 @@
 # Shortest Path Finder Application
 
-This application aim to Find the path from source to destination in a matrix that satisfies given constraints.
+This application is to Find the shortest path from source to destination in a matrix that satisfies given constraints.
+
+# Assumption and base considerations during application start.
+	1) Preparing grid of 4*4 and corresponding edges.
+	2) Default values 0 and allowed edge is 1.
+	3) Creating default robots with predefined configurations(need to enhance to make it as api)
+	4) Using spring web-flux 
+	5) some of other approaches and logics can be improved in this app same i declared with TODO's.
+	6) call findshortestpath api to get out put.
 
 # note 
 The work is still in progress for satisfying all the constraints. 
@@ -8,6 +16,8 @@ The work is still in progress for satisfying all the constraints.
 ## How to run:
 
  1. Run application with command mvn spring-boot:run
+   Or
+ 2. Import into IDE and Run ShortestPathFinderApplication.java
 
 ## Rest End-Points: 
 
