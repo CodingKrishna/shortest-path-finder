@@ -65,3 +65,8 @@ The work is still in progress for satisfying all the constraints.
 4. Get users:
 
    GET URL: localhost:8080/users
+
+# Sequence
+
+![Alt text](./FindShortestPathHandler_findPath.svg)
+<img src="./FindShortestPathHandler_findPath.svg"> 
