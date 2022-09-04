@@ -8,7 +8,6 @@ import java.util.Set;
 import org.springframework.stereotype.Service;
 
 import com.shortestpathfinder.robot.Capability;
-import com.shortestpathfinder.robot.Directions;
 import com.shortestpathfinder.robot.RoboStepsCapability;
 import com.shortestpathfinder.robot.RoboWeightCapability;
 import com.shortestpathfinder.robot.Robot;
@@ -33,7 +32,7 @@ public class RobotService {
 
 	public static Robot createDummyRobo() {
 		RoboWeightCapability rwc = new RoboWeightCapability(12);
-		RoboStepsCapability rsc = new RoboStepsCapability(2, Directions.ALL);
+		RoboStepsCapability rsc = new RoboStepsCapability(2);
 		Set<Capability> capabilies = new HashSet<>();
 		capabilies.add(rwc);
 		capabilies.add(rsc);
@@ -42,7 +41,7 @@ public class RobotService {
 
 	public static Robot createDummyRobo2() {
 		RoboWeightCapability rwc = new RoboWeightCapability(2);
-		RoboStepsCapability rsc = new RoboStepsCapability(1, Directions.ALL);
+		RoboStepsCapability rsc = new RoboStepsCapability(1);
 		Set<Capability> capabilies = new HashSet<>();
 		capabilies.add(rwc);
 		capabilies.add(rsc);

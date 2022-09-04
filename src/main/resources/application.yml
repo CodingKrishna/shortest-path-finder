@@ -15,7 +15,7 @@
 #spring.data.cassandra.keyspace-name = ${CASSANDRA_KEYSPACE:user_test}
 
 graph:
-  vertices: 3
+  vertices: 4
   edges:
     -
       src: 0

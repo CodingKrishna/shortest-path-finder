@@ -19,7 +19,7 @@ public class ShortestPathFinderRoutes {
 
 	        return RouterFunctions.route()
 	                .path("/api/", builder -> builder
-	                		.GET("findshortestpath/{robotId}/{startVertex}/{destVertex}", accept(MediaType.APPLICATION_JSON), findShortestPathHandler::findPath))
+	                		.GET("findshortestpath", accept(MediaType.APPLICATION_JSON), findShortestPathHandler::findPath))
 	                .build();
 	    }
 	  

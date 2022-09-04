@@ -23,10 +23,12 @@ public class Grid {
 		this.vertices = graph.getVertices();
 		
 		matrix = new int[vertexs][vertexs];
+		printGraph();
 		for (Vertex v : graph.getVertices()) {
 			List<Edge> edges = graph.getEdges(v);
 			for (Edge edge : edges) {
 				if (v.getId() == edge.getSrc()) {
+					log.info("Vertex:{} and dest:{}", v, edge.getDest());
 					matrix[v.getId()][edge.getDest()] = 1;
 				}
 			}

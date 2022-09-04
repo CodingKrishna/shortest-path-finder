@@ -18,15 +18,16 @@ import lombok.Data;
 public class Config {
 
 	@Value("${graph.vertices}")
-	public int vertices = 3;
+	public int vertices = 4;
 
 	public List<Edge> edges = new LinkedList<Edge>();
 
 	public Config(@Value("${graph.vertices}") int vertices) {
 		this.vertices = vertices;
 		edges.add(new Edge(0, 1));
+		edges.add(new Edge(0, 2));
 		edges.add(new Edge(1, 2));
-		edges.add(new Edge(2, 0));
+		edges.add(new Edge(2, 3));
 	}
 
 }

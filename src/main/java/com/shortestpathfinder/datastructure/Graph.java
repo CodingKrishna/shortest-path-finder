@@ -49,6 +49,7 @@ public class Graph {
 	}
 
 	public void printGraph() {
+		System.out.println(vertices);
 		for (Vertex vertex : graph.keySet()) {
 			List<Edge> le = graph.get(vertex);
 			for (Edge e : le) {

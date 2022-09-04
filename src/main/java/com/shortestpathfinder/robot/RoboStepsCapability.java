@@ -1,5 +1,7 @@
 package com.shortestpathfinder.robot;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -9,6 +11,7 @@ public class RoboStepsCapability implements StepsCapability {
 
 	int steps;
 
-	Directions directions = Directions.ALL;
-
+	public List<Directions> getDirections(){
+		return List.of(Directions.ALL);
+	}
 }
